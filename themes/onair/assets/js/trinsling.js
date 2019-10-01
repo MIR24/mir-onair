@@ -2,11 +2,20 @@
 
     $(document).ready(function() {
 
+        $.urlParam = function(name){
+            let results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null) {
+                return null;
+            }
+            return decodeURI(results[1]) || 0;
+        };
+
         window.players = [];
 
         let radio = window.mirplayer;
 
         $('.translation .video').each(function () {
+            let tabIndex = $(this).closest('.tab').data('index');
             let playerId = 'html5player-' + $(this).data('rand');
             let poster = $(this).data('poster');
             let stream = $(this).data('stream');
@@ -15,7 +24,9 @@
                 $(this).html("<video poster='" + poster + "' id='" + playerId + "' class='html5video video-js vjs-default-skin' controls>" +
                     "<source src=\"" +stream + "\" type='application/x-mpegurl' >" +
                     "</video>");
-                if($('.channel[data-id="' + $(this).closest('.tab.active').data('index') + '"]').hasClass('channel--active')) {
+                if(!$.urlParam('stream_id') && $('.channel[data-id="' + $(this).closest('.tab.active').data('index') + '"]').hasClass('channel--active')) {
+                    autoplay = true;
+                }else if($.urlParam('stream_id') && tabIndex == $.urlParam('stream_id')) {
                     autoplay = true;
                 }else {
                     autoplay = false;
@@ -56,6 +67,10 @@
             window.program.reset().render(id).update(id, 6000);
             $('.trinsling-tabs .tab[data-index="' + id + '"]').find('.video').data('player').play();
         });
+
+        if ($.urlParam('stream_id')) {
+            $('.channel[data-id=' + $.urlParam('stream_id') + ']').trigger('click');
+        }
 
         let activeId = $('.channels .channel.channel--active').data('id');
         window.program.reset().render(activeId).update(activeId, 6000);
