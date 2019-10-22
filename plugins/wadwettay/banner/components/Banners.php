@@ -31,22 +31,22 @@ class Banners extends ComponentBase
 
     public function getTopBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-top')->first();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-top')->get();
     }
 
     public function getFullBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'full')->first();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'full')->get();
     }
 
     public function getLeftBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'left')->first();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'left')->get();
     }
 
     public function getRightBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'right')->first();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'right')->get();
     }
 
     public function getCarouselBanner()
@@ -56,11 +56,11 @@ class Banners extends ComponentBase
 
     public function getCenterBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-center')->first();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-center')->get();
     }
 
     public function getBottomBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-bottom')->first();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-bottom')->get();
     }
 }
