@@ -98,4 +98,16 @@ $(document).ready(function () {
     });
 
     mirplayer.init();
+
+    $('.rotate-slick').slick({
+        infinite: true,
+        speed: 700,
+        fade: true,
+        arrows: false,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        cssEase: 'ease-in-out',
+        swipe: false
+    });
 });

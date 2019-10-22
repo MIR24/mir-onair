@@ -5,23 +5,27 @@
     {% if (schedule_banners.getFullBanner()) %}
     <!-- Полное брендирование (демо подложка) -->
     <div class="branding">
-        <div class="branding__part branding__part--full">
-            <a href="{{ schedule_banners.getFullBanner().link }}">
-                <img src="{{ schedule_banners.getFullBanner().image.path }}" alt="">
-            </a>
+        <div class="branding__part branding__part--full rotate-slick">
+            {% for item in schedule_banners.getFullBanner() %}
+            <a href="{{ item.link }}"><img src="{{ item.image.path }}" /></a>
+            {% endfor %}
         </div>
     </div>
     {% endif %}
 
-    <div class="branding">
+    <div class="branding ">
         {% if (schedule_banners.getLeftBanner()) %}
-        <div class="branding__part branding__part--left">
-            <a href="{{ schedule_banners.getLeftBanner().link }}"><img src="{{ schedule_banners.getLeftBanner().image.path }}" alt=""></a>
+        <div class="branding__part branding__part--left rotate-slick">
+            {% for item in schedule_banners.getLeftBanner() %}
+            <a href="{{ item.link }}"><img src="{{ item.image.path }}" /></a>
+            {% endfor %}
         </div>
         {% endif %}
         {% if (schedule_banners.getRightBanner()) %}
-        <div class="branding__part branding__part--right">
-            <a href="{{ schedule_banners.getRightBanner().link }}"><img src="{{ schedule_banners.getRightBanner().image.path }}" alt=""></a>
+        <div class="branding__part branding__part--right rotate-slick">
+            {% for item in schedule_banners.getRightBanner() %}
+            <a href="{{ item.link }}"><img src="{{ item.image.path }}" /></a>
+            {% endfor %}
         </div>
         {% endif %}
     </div>
