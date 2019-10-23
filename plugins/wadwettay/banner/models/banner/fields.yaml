@@ -29,8 +29,6 @@ fields:
         type: fileupload
         hidden: true
         dependsOn: location
-    link:
-        label: Ссылка
     image_left:
         label: Левый банер
         type: fileupload
@@ -41,3 +39,5 @@ fields:
         type: fileupload
         hidden: true
         dependsOn: location
+    link:
+        label: Ссылка
