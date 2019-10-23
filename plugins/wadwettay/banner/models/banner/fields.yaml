@@ -12,8 +12,7 @@ fields:
         options:
             baner-top: [Top baner, Банер вверху 1920х90.]
             full: [Full, Полное брендирование.]
-            left: [Left, Двойное брендирование(слева).]
-            right: [Right, Двойное брендирование(справа).]
+            double: [Double, Двойное брендирование.]
             carousel: [Carousel, Карусель.]
             baner-center: [Center baner, Банер 1200х90.]
             baner-bottom: [Bottom baner, Банер внизу 1920х90.]
@@ -28,5 +27,17 @@ fields:
     image:
         label: Банер
         type: fileupload
+        hidden: true
+        dependsOn: location
+    image_left:
+        label: Левый банер
+        type: fileupload
+        hidden: true
+        dependsOn: location
+    image_right:
+        label: Правый банер
+        type: fileupload
+        hidden: true
+        dependsOn: location
     link:
         label: Ссылка

@@ -34,6 +34,18 @@ class Banner extends Model
     public $morphMany = [];
     public $attachOne = [
         'image' => ['System\Models\File'],
+        'image_left' => ['System\Models\File'],
+        'image_right' => ['System\Models\File'],
     ];
     public $attachMany = [];
+
+    public function filterFields($fields, $context = null)
+    {
+        if ($this->location === 'double') {
+            $fields->image_left->hidden = false;
+            $fields->image_right->hidden = false;
+        }else {
+            $fields->image->hidden = false;
+        }
+    }
 }

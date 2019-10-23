@@ -1,8 +1,6 @@
 ==
 {% if (schedule_banners.getCenterBanner()) %}
-<div class="ad rotate-slick">
-    {% for item in schedule_banners.getCenterBanner() %}
-    <a href="{{ item.link }}"><img src="{{ item.image.path }}" /></a>
-    {% endfor %}
+<div class="ad">
+    <a href="{{ schedule_banners.getCenterBanner().link }}"><img src="{{ schedule_banners.getCenterBanner().image.path }}" /></a>
 </div>
 {% endif %}
