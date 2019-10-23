@@ -31,22 +31,17 @@ class Banners extends ComponentBase
 
     public function getTopBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-top')->get();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-top')->inRandomOrder()->first();
     }
 
     public function getFullBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'full')->get();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'full')->inRandomOrder()->first();
     }
 
-    public function getLeftBanner()
+    public function getDoubleBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'left')->get();
-    }
-
-    public function getRightBanner()
-    {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'right')->get();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'double')->inRandomOrder()->first();
     }
 
     public function getCarouselBanner()
@@ -56,11 +51,11 @@ class Banners extends ComponentBase
 
     public function getCenterBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-center')->get();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-center')->inRandomOrder()->first();
     }
 
     public function getBottomBanner()
     {
-        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-bottom')->get();
+        return Banner::where('date_start', '<', $this->now)->where('date_end', '>', $this->now)->where('location', 'baner-bottom')->inRandomOrder()->first();
     }
 }
